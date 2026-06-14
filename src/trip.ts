@@ -8,6 +8,7 @@ import {
   RouteDetailsParams,
   RouteDetailsLiveResponse
 } from "./types";
+import { randomDeviceId } from "./utils";
 
 export function dayOfWeek(): string {
   return ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][new Date().getDay()];
@@ -68,7 +69,7 @@ export async function getPlaceDetails(
       params: {
         placeid: params.placeId,
         searchPartner: params.searchPartner ?? "heremaps",
-        meta: JSON.stringify({ deviceId: params.deviceId ?? auth.deviceId }),
+        meta: JSON.stringify({ deviceId: params.deviceId ?? randomDeviceId(), }),
       },
     }
   );
