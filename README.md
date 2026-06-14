@@ -10,6 +10,12 @@ Unofficial Node.js/TypeScript SDK for the [Chalo](https://chalo.com) API. Track 
 npm install chalo-sdk
 ```
 
+install the latest GitHub version (recommended):
+
+```bash
+npm install github:A-d-i-t-h-y-a-n/chalo-sdk
+```
+
 ## Usage
 
 ```ts
@@ -131,7 +137,7 @@ const session = await chalo.login({
 });
 ```
 
-Or pass auth directly:
+pass auth directly:
 
 ```ts
 const chalo = new ChaloSDK({
