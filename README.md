@@ -32,6 +32,7 @@ Search for bus routes, stops, or places in a city.
 const results = await chalo.search({
   city: "ernakulam",
   query: "Aluva",
+  location: { lat: 9.986, lon: 76.274 }
 });
 
 console.log(results.data.routes);
@@ -44,7 +45,7 @@ console.log(results.data.stopsAndPlaces);
 |---|---|---|---|
 | `city` | `string` | ✓ | City slug (e.g. `"bangalore"`) |
 | `query` | `string` | ✓ | Search term |
-| `location` | `{ lat, lon }` | | Bias results near a location |
+| `location` | `{ lat, lon }` | ✓ | Bias results near a location |
 
 ---
 
@@ -55,10 +56,10 @@ Get itineraries between two coordinates.
 ```ts
 const trip = await chalo.planTrip({
   city: "ernakulam",
-  fromLat: 9.9816,
-  fromLon: 76.2999,
-  toLat: 10.0159,
-  toLon: 76.3419,
+  fromLat: 9.986,
+  fromLon: 76.274,
+  toLat: 10.110,
+  toLon: 76.348,
 });
 
 for (const itinerary of trip.payload.itineraries) {
