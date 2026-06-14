@@ -63,7 +63,7 @@ const trip = await chalo.planTrip({
 });
 
 for (const itinerary of trip.payload.itineraries) {
-  console.log(`${itinerary.time_taken / 60} mins — ₹${itinerary.total_fare}`);
+  console.log(`From ${itinerary.legs[0].end_place_name} In ${(itinerary.time_taken / 60) | 0} mins — ₹${itinerary.total_fare}`);
 }
 ```
 
@@ -77,27 +77,6 @@ for (const itinerary of trip.payload.itineraries) {
 | `numItineraries` | `number` | | How many results to return |
 | `maxWalkDistance` | `number` | | Max walk distance in meters |
 | `ac` / `nonac` | `boolean` | | Filter AC/non-AC buses |
-
----
-
-### `getPlaceDetails(params)`
-
-Get coordinates and address for a place ID (from search results).
-
-```ts
-const place = await chalo.getPlaceDetails({
-  placeId: "ChIJ...",
-});
-
-console.log(place.result.geometry.location); // { lat, lng }
-console.log(place.result.formatted_address);
-```
-
-**Params:**
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `placeId` | `string` | ✓ | Place ID from search results |
 
 ---
 
