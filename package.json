@@ -1,0 +1,46 @@
+{
+  "name": "chalo-sdk",
+  "version": "1.0.0",
+  "description": "An unofficial TypeScript/Node.js SDK wrapper for the Chalo API to track public transport and live bus locations.",
+  "keywords": [
+    "chalo",
+    "sdk",
+    "bus-tracking"
+  ],
+  "homepage": "https://github.com/A-d-i-t-h-y-a-n/chalo-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/A-d-i-t-h-y-a-n/chalo-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-d-i-t-h-y-a-n/chalo-sdk.git"
+  },
+  "license": "MIT",
+  "author": "Adithyan R",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/cjs/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node scripts/fix-cjs.js",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^5.9.3"
+  }
+}
