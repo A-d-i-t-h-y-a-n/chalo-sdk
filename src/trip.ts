@@ -31,7 +31,7 @@ function authHeaders(auth: AuthState) {
 export async function planTrip(
   client: AxiosInstance,
   params: TripPlannerParams,
-  auth: AuthState
+  auth?: AuthState | null
 ): Promise<TripPlannerResponse> {
   const res = await client.get<TripPlannerResponse>(
     `/scheduler_v4/v4/${params.city}/tripplanner`,
@@ -60,7 +60,7 @@ export async function planTrip(
 export async function getPlaceDetails(
   client: AxiosInstance,
   params: PlaceDetailsParams,
-  auth: AuthState
+  auth?: AuthState | null
 ): Promise<PlaceDetailsResponse> {
   const res = await client.get<PlaceDetailsResponse>(
     `/scheduler_v4/v5/place/details`,

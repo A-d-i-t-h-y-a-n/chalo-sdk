@@ -67,12 +67,12 @@ export class ChaloSDK {
 
   async planTrip(params: TripPlannerParams): Promise<TripPlannerResponse> {
    // if (!this.auth) throw new Error("Not authenticated — call login() first");
-    return planTrip(this.client, params, this.auth);
+    return planTrip(this.client, params, this.auth ?? undefined);
   }
 
   async getPlaceDetails(params: PlaceDetailsParams): Promise<PlaceDetailsResponse> {
    // if (!this.auth) throw new Error("Not authenticated — call login() first");
-    return getPlaceDetails(this.client, params, this.auth);
+    return getPlaceDetails(this.client, params, this.auth ?? undefined);
   }
 
   getCookie(): string {
